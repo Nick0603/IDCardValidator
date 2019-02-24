@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">內政部身分證補發 輔助工具 測試頁面</h1>
+            <p class="lead">使用以下連結或表單測試將資料傳送到 內政部身分證驗證頁面 ，再以 chrome extension 自動帶入表單</p>
+        </div>
+    </div>
+    <div class="card">
+        <h5 class="card-header">特色：自動將內部網站資料填入外部網站</h5>
+        <div class="card-body">
+            <h5 class="card-title">將內部資料帶入外部網站的 網址 中再由安裝好的 chrome extension 自動帶入表單</h5>
+            <p class="card-text">例如：以下目標連結 將 https://www.ris.gov.tw/apply-idCard/app/idcard/IDCardReissue/ 加上資料<p>
+            <p class="card-text">idnum=123456789 、 applyTWY=108 ... 一一帶入於網址列後面</p>
+            <a href="https://www.ris.gov.tw/apply-idCard/app/idcard/IDCardReissue/?idnum=123456789&applyTWY=108&applyMM=2&applyDD=24&siteId=10001&applyReason=1"
+                target="_blank">測試連結(https://www.ris.gov.tw/apply-idCard/app/idcard/IDCardReissue/?idnum=123456789&applyTWY=108&applyMM=2&applyDD=24&siteId=10001&applyReason=1)</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h5 class="card-header">測試自訂資料</h5>
+        <div class="card-body">
+
+            <form action="https://www.ris.gov.tw/apply-idCard/app/idcard/IDCardReissue/" method="get">
+                <fieldset>
+                    <legend>1. 選擇申請類別</legend>
+                    <div class="col-xs-12 row">
+                        <div class="col-xs-12">
+                            <label for="idnum"><span class="color-red">① *</span>國民身分證統一編號：</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <input id="idnum" name="idnum" class="form-control text-uppercase" placeholder="請輸入統一編號" type="text"
+                                value="" maxlength="10">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 p-sm-top row">
+                        <div class="col-xs-12">
+                            <label for="applyTWY"><span class="color-red">② *</span>發證日期：</label>
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="applyTWY">民國</label>
+                            <select id="applyTWY" name="applyTWY" class="form-control inline min-control">
+                                <option value=""></option>
+                                <option value="108">108</option>
+                                <option value="107">107</option>
+                                <option value="106">106</option>
+                                <option value="105">105</option>
+                                <option value="104">104</option>
+                                <option value="103">103</option>
+                                <option value="102">102</option>
+                                <option value="101">101</option>
+                                <option value="100">100</option>
+                                <option value="99">99</option>
+                                <option value="98">98</option>
+                                <option value="97">97</option>
+                                <option value="96">96</option>
+                                <option value="95">95</option>
+                                <option value="94">94</option>
+                            </select>
+                            <label for="applyTWY">年</label>
+                            <select id="applyMM" name="applyMM" class="form-control inline min-control">
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <label for="applyMM">月</label>
+                            <select id="applyDD" name="applyDD" class="form-control inline min-control">
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <label for="applyDD">日</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 row p-sm-top">
+                        <div class="col-xs-12 p-sm-top">
+                            <label for="siteId"><span class="color-red">③ *</span>發證地點：</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 p-sm-top">
+                            <select id="siteId" name="siteId" class="form-control">
+                                <option value="0">請選擇</option>
+                                <option value="10001">北縣</option>
+                                <option value="10002">宜縣</option>
+                                <option value="10003">桃縣</option>
+                                <option value="10004">竹縣</option>
+                                <option value="10005">苗縣</option>
+                                <option value="10006">中縣</option>
+                                <option value="10007">彰縣</option>
+                                <option value="10008">投縣</option>
+                                <option value="10009">雲縣</option>
+                                <option value="10010">嘉縣</option>
+                                <option value="10011">南縣</option>
+                                <option value="10012">高縣</option>
+                                <option value="10013">屏縣</option>
+                                <option value="10014">東縣</option>
+                                <option value="10015">花縣</option>
+                                <option value="10016">澎縣</option>
+                                <option value="10017">基市</option>
+                                <option value="10018">竹市</option>
+                                <option value="10020">嘉市</option>
+                                <option value="09007">連江</option>
+                                <option value="09020">金門</option>
+                                <option value="63000">北市</option>
+                                <option value="64000">高市</option>
+                                <option value="65000">新北市</option>
+                                <option value="66000">中市</option>
+                                <option value="67000">南市</option>
+                                <option value="68000">桃市</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 row p-sm-top">
+                        <div class="col-xs-12">
+                            <label for="applyReason"><span class="color-red">④ *</span>領補換類別：</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 p-sm-top">
+                            <select id="applyReason" name="applyReason" class="form-control">
+                                <option value="0">請選擇</option>
+                                <option value="1">初發</option>
+                                <option value="2">補發</option>
+                                <option value="3">換發</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+                <input type="submit" value="送出">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "ID Card Validator Tool",
+  "version": "1.0",
+  "description": "協助到達內政部身分證換發「資料填入」流程",
+  "content_scripts": [{
+    "matches": [
+      "https://www.ris.gov.tw/apply-idCard/app/idcard/IDCardReissue/*"
+    ],
+    "js": ["script.js"]
+  }],
+  "icons": {
+    "16": "images/icon16.png",
+    "128": "images/icon128.png"
+  }
+}
